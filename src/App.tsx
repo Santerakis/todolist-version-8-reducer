@@ -96,7 +96,7 @@ function App() {
     const changeTodoListFilter = (nextFilterValue: FilterValuesType, todoListId: string) => {
         setTodoLists(todoLists.map(tl => tl.id === todoListId ? {...tl, filter: nextFilterValue} : tl))
     }
-    const changeTodolistTitle = (title: string, todoListId: string) => {
+    const changeTodoListTitle = (title: string, todoListId: string) => {
         setTodoLists(todoLists.map(tl => tl.id === todoListId ? {...tl, title: title} : tl))
     }
     const removeTodoList = (todoListId: string) => {
@@ -105,7 +105,7 @@ function App() {
         delete  copyTasks[todoListId]
         setTasks(copyTasks)
     }
-    const addTodolist = (title: string) => {
+    const addTodoList = (title: string) => {
         const newTodolist: TodoListType = {
             id: v1(),
             title: title,
@@ -146,14 +146,14 @@ function App() {
 
                 removeTodoList={removeTodoList}
                 changeTodoListFilter={changeTodoListFilter}
-                changeTodolistTitle={changeTodolistTitle}
+                changeTodolistTitle={changeTodoListTitle}
             />
         )
     })
 
     return (
         <div className="App">
-            <AddItemForm addItem={addTodolist} />
+            <AddItemForm addItem={addTodoList} />
             {todoListsComponents}
         </div>
     );
